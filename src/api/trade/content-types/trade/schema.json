@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "trades",
+  "info": {
+    "singularName": "trade",
+    "pluralName": "trades",
+    "displayName": "trade",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "volume": {
+      "type": "decimal"
+    },
+    "result": {
+      "type": "string"
+    },
+    "stop": {
+      "type": "decimal"
+    },
+    "takeProfit": {
+      "type": "decimal"
+    },
+    "RR": {
+      "type": "integer"
+    },
+    "sign": {
+      "type": "string"
+    },
+    "buySell": {
+      "type": "string"
+    },
+    "drowDown": {
+      "type": "integer"
+    }
+  }
+}
