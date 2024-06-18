@@ -35,6 +35,17 @@
     },
     "drowDown": {
       "type": "integer"
+    },
+    "journal": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::journal.journal"
+    },
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "trades"
     }
   }
 }
