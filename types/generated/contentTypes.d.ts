@@ -418,7 +418,7 @@ export interface ApiTradeTrade extends Schema.CollectionType {
       'oneToOne',
       'api::journal.journal'
     >;
-    users_permissions_user: Attribute.Relation<
+    users: Attribute.Relation<
       'api::trade.trade',
       'manyToOne',
       'plugin::users-permissions.user'

@@ -41,7 +41,7 @@
       "relation": "oneToOne",
       "target": "api::journal.journal"
     },
-    "users_permissions_user": {
+    "users": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "plugin::users-permissions.user",
