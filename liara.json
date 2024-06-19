@@ -8,5 +8,6 @@
       "name": "media",
       "mountTo": "/app/public/uploads"
     }
-  ]
+  ],
+  "app": "trade-calc"
 }

@@ -4,6 +4,8 @@
     "target": "ES2021",
     "checkJs": true,
     "allowJs": true,
-    "module": "nodenext"
+    // "module": "nodenext"
   }
 }
+
+
