@@ -362,85 +362,6 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
-export interface ApiJournalJournal extends Schema.CollectionType {
-  collectionName: 'journals';
-  info: {
-    singularName: 'journal';
-    pluralName: 'journals';
-    displayName: 'journal';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    name: Attribute.String;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::journal.journal',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::journal.journal',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiTradeTrade extends Schema.CollectionType {
-  collectionName: 'trades';
-  info: {
-    singularName: 'trade';
-    pluralName: 'trades';
-    displayName: 'trade';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    volume: Attribute.Decimal;
-    result: Attribute.String;
-    stop: Attribute.Decimal;
-    takeProfit: Attribute.Decimal;
-    RR: Attribute.Integer;
-    sign: Attribute.String;
-    buySell: Attribute.String;
-    drowDown: Attribute.Integer;
-    journal: Attribute.Relation<
-      'api::trade.trade',
-      'oneToOne',
-      'api::journal.journal'
-    >;
-    users: Attribute.Relation<
-      'api::trade.trade',
-      'manyToOne',
-      'plugin::users-permissions.user'
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::trade.trade',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::trade.trade',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -807,6 +728,16 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       'oneToMany',
       'api::trade.trade'
     >;
+    info: Attribute.Relation<
+      'plugin::users-permissions.user',
+      'oneToOne',
+      'api::info.info'
+    >;
+    user_info: Attribute.Relation<
+      'plugin::users-permissions.user',
+      'oneToOne',
+      'api::user-info.user-info'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -871,6 +802,147 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
 }
 
+export interface ApiInfoInfo extends Schema.CollectionType {
+  collectionName: 'infos';
+  info: {
+    singularName: 'info';
+    pluralName: 'infos';
+    displayName: 'info';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    firstName: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::info.info', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::info.info', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiJournalJournal extends Schema.CollectionType {
+  collectionName: 'journals';
+  info: {
+    singularName: 'journal';
+    pluralName: 'journals';
+    displayName: 'journal';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::journal.journal',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::journal.journal',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiTradeTrade extends Schema.CollectionType {
+  collectionName: 'trades';
+  info: {
+    singularName: 'trade';
+    pluralName: 'trades';
+    displayName: 'trade';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    volume: Attribute.Decimal;
+    result: Attribute.String;
+    stop: Attribute.Decimal;
+    takeProfit: Attribute.Decimal;
+    RR: Attribute.Integer;
+    sign: Attribute.String;
+    buySell: Attribute.String;
+    drowDown: Attribute.Integer;
+    journal: Attribute.Relation<
+      'api::trade.trade',
+      'oneToOne',
+      'api::journal.journal'
+    >;
+    users: Attribute.Relation<
+      'api::trade.trade',
+      'manyToOne',
+      'plugin::users-permissions.user'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::trade.trade',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::trade.trade',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiUserInfoUserInfo extends Schema.CollectionType {
+  collectionName: 'user_infos';
+  info: {
+    singularName: 'user-info';
+    pluralName: 'user-infos';
+    displayName: 'userInfo';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    firstName: Attribute.String;
+    lastName: Attribute.String;
+    mobilePhone: Attribute.String;
+    tradeMethod: Attribute.String;
+    user: Attribute.Relation<
+      'api::user-info.user-info',
+      'oneToOne',
+      'plugin::users-permissions.user'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::user-info.user-info',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::user-info.user-info',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -881,8 +953,6 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
-      'api::journal.journal': ApiJournalJournal;
-      'api::trade.trade': ApiTradeTrade;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
@@ -891,6 +961,10 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
+      'api::info.info': ApiInfoInfo;
+      'api::journal.journal': ApiJournalJournal;
+      'api::trade.trade': ApiTradeTrade;
+      'api::user-info.user-info': ApiUserInfoUserInfo;
     }
   }
 }

@@ -9,5 +9,6 @@
       "mountTo": "/app/public/uploads"
     }
   ],
-  "app": "trade-calc"
+  "app": "trade-calc",
+  "platform": "node"
 }
