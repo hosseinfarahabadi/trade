@@ -71,16 +71,11 @@
       "target": "api::trade.trade",
       "mappedBy": "users"
     },
-    "info": {
+    "user_infos": {
       "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::info.info"
-    },
-    "user_info": {
-      "type": "relation",
-      "relation": "oneToOne",
+      "relation": "oneToMany",
       "target": "api::user-info.user-info",
-      "inversedBy": "user"
+      "mappedBy": "user"
     }
   }
 }
