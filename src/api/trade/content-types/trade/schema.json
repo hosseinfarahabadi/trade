@@ -12,20 +12,8 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "volume": {
-      "type": "decimal"
-    },
     "result": {
       "type": "string"
-    },
-    "stop": {
-      "type": "decimal"
-    },
-    "takeProfit": {
-      "type": "decimal"
-    },
-    "RR": {
-      "type": "integer"
     },
     "sign": {
       "type": "string"
@@ -33,19 +21,32 @@
     "buySell": {
       "type": "string"
     },
-    "drowDown": {
-      "type": "integer"
-    },
     "journal": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::journal.journal"
+      "target": "api::journal.journal",
+      "inversedBy": "trade"
     },
     "users": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "plugin::users-permissions.user",
       "inversedBy": "trades"
+    },
+    "volume": {
+      "type": "string"
+    },
+    "stop": {
+      "type": "string"
+    },
+    "takeProfit": {
+      "type": "string"
+    },
+    "RR": {
+      "type": "string"
+    },
+    "drowDown": {
+      "type": "string"
     }
   }
 }

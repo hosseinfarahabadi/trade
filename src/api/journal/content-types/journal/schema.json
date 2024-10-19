@@ -14,6 +14,12 @@
   "attributes": {
     "name": {
       "type": "string"
+    },
+    "trade": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::trade.trade",
+      "inversedBy": "journal"
     }
   }
 }
