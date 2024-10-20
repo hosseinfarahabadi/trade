@@ -18,7 +18,8 @@ module.exports = createCoreController('api::trade.trade', ({ strapi }) => ({
         where: { users: {
             id:userId
         } },
-        populate: { users: true },
+        // populate: '*'
+        populate: { users: true, journal:true },
       });
     // Return the response
     return { trades };
@@ -45,23 +46,5 @@ console.log("sanitizedEntity",sanitizedEntity)
 
     return ctx.body = sanitizedEntity;
   },
-  // Override the findOne method
-//   async findOne(ctx) {
-//     const { id } = ctx.params;
-//     const userId = ctx.state.user.id;
 
-//     // Get the requested entry
-//     const entry = await strapi.service('api::trade.trade').findOne({ id });
-
-//     // Check if the entry exists and belongs to the authenticated user
-//     if (!entry || entry.user.id !== userId) {
-//       return ctx.unauthorized(`You can't access this entry`);
-//     }
-
-//     // Call the default core action
-//     const { data, meta } = await super.findOne(ctx);
-
-//     // Return the response
-//     return { data, meta };
-//   },
 }));
